@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.eggs/
+*.egg-info/
+
+# 虚拟环境
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 模型与运行产物（课程设计大文件不入库）
+*.pt
+*.pth
+*.onnx
+*.bin
+logs/

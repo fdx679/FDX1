@@ -1,0 +1,51 @@
+{
+  "project": "基于深度学习与知识图谱的智能招聘简历筛选系统设计与实现",
+  "prompt_trace_version": "v0.1",
+  "description": "课程设计全流程 AI 交流记录（数据准备与预处理阶段）。每个阶段结束时追加更新，上下文压缩前备份。",
+  "conversation": [
+    {
+      "turn_id": 1,
+      "timestamp": "2026-08-29",
+      "stage": "数据准备（数据来源）",
+      "user_message": "控制我的电脑，我的库是 https://github.com/fdx679/FDX1。任务：1.数据来源-准备好完成课程设计所需数据；2.数据预处理-完成原始数据预处理及相关程序，/data下更新预处理后的数据文件，readme.md同步更新；3.AI工具提示词追溯-创建prompt目录，将与AI交流的记录(json)添加到该目录，并在每个阶段同步更新，上下文压缩前及时备份。",
+      "ai_summary": "读取仓库已有文档（README/选题说明/方案设计/学习笔记）确认课程设计题目为《基于深度学习与知识图谱的智能招聘简历筛选系统设计与实现》。安装Git并克隆仓库到本地。调研并确定数据来源：(1)主数据集-简历数据选用Kaggle公开数据集 Resume Dataset（链接已验证有效），并下载GitHub公开镜像子集(169条,25类)入库；(2)辅助数据集-岗位描述选用Indeed公开岗位样本(GitHub luminati-io/Indeed-dataset-samples)，筛选相关岗位55条+自建补充16条覆盖全部25类（自建数据已标注Source字段）。将原始数据写入 data/raw/。",
+      "artifacts": [
+        "data/raw/resumes_raw.csv (169条简历,25类)",
+        "data/raw/jobs_indeed_raw.csv (1000条Indeed岗位样本)",
+        "data/README.md (数据来源说明)",
+        "https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset (主数据集官方链接)",
+        "https://github.com/luminati-io/Indeed-dataset-samples (岗位数据公开链接)"
+      ],
+      "key_decisions": [
+        "主数据集采用Kaggle Resume Dataset（公开数据集），仓库内置169条镜像子集便于课程设计直接使用",
+        "岗位数据采用Indeed公开样本+自建补充，保证知识图谱覆盖简历全部25个岗位类别",
+        "自建岗位数据明确标注 Source=自建数据集，满足课程设计数据合规要求"
+      ]
+    },
+    {
+      "turn_id": 2,
+      "timestamp": "2026-08-29",
+      "stage": "数据预处理",
+      "user_message": "完成数据预处理相关工作，编写预处理程序，/data下更新预处理后的数据文件（或索引），并在readme.md中同步更新。",
+      "ai_summary": "编写两个预处理脚本：preprocessing/preprocess_resumes.py（简历预处理）与 preprocessing/preprocess_jobs.py（岗位预处理）。简历预处理：HTML/URL清洗、隐私掩码（邮箱/电话/身份证）、按类别分层8:2划分训练测试集；岗位预处理：按25类关键词筛选岗位、文本清洗、技能词表抽取技能、生成岗位-技能关系表。安装pandas依赖后运行脚本，生成预处理后数据与统计报告，并用独立验证脚本回读核验输出质量（隐私掩码生效、25类全覆盖、训练测试分层一致）。",
+      "artifacts": [
+        "preprocessing/preprocess_resumes.py",
+        "preprocessing/preprocess_jobs.py",
+        "preprocessing/verify_output.py (验证脚本)",
+        "data/preprocessed/resumes_clean.csv (166条)",
+        "data/preprocessed/resumes_train.csv (135条,80%)",
+        "data/preprocessed/resumes_test.csv (31条,20%)",
+        "data/preprocessed/jobs_clean.csv (71条,25类,含Source来源标注)",
+        "data/preprocessed/jobs_skill_relation.csv (291条岗位-技能关系)",
+        "data/preprocessed/resume_preprocess_report.json",
+        "data/preprocessed/job_preprocess_report.json"
+      ],
+      "key_decisions": [
+        "隐私保护：预处理阶段掩码简历中邮箱/电话/身份证，符合课程设计'去除个人信息'要求",
+        "分层划分：按岗位类别8:2划分训练/测试集，避免类别不均衡",
+        "技能抽取：基于技能词表规则抽取，生成岗位-技能关系表供知识图谱构建",
+        "岗位数据补全：对Indeed缺失的技术类岗位自建补充，保证知识图谱覆盖完整"
+      ]
+    }
+  ]
+}
