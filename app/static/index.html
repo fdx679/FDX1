@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能招聘简历筛选系统</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>智能招聘简历筛选系统</h1>
+      <span class="subtitle">基于深度学习与知识图谱 · 课程设计演示</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 左侧：简历输入 -->
+    <section class="panel input-panel">
+      <h2>① 简历输入</h2>
+      <textarea id="resumeText" placeholder="粘贴简历文本内容（支持中英文），或点击下方加载示例简历…"></textarea>
+      <div class="btn-row">
+        <button id="btnSample" class="btn btn-secondary">加载示例简历</button>
+        <button id="btnAnalyze" class="btn btn-primary">解析与匹配</button>
+      </div>
+      <div class="hint">
+        <p><strong>示例简历：</strong>点击“加载示例简历”可体验完整流程。</p>
+        <p>系统将自动完成：文本解析 → 岗位分类 → 技能抽取 → 匹配排序 → 图谱推理。</p>
+      </div>
+      <h2>岗位筛选（可选）</h2>
+      <select id="jobFilter" multiple size="4"></select>
+      <p class="hint">按住 Ctrl 可多选；留空则匹配全部岗位。</p>
+    </section>
+
+    <!-- 右侧：结果 -->
+    <section class="panel result-panel">
+      <h2>② 解析与匹配结果</h2>
+      <div id="resultArea" class="result-area">
+        <div class="empty-tip">请在上方输入简历并点击「解析与匹配」</div>
+      </div>
+    </section>
+
+    <!-- 知识图谱 -->
+    <section class="panel graph-panel">
+      <h2>③ 岗位技能知识图谱 <span class="tag">networkx</span></h2>
+      <div id="graphChart"></div>
+      <div class="graph-controls">
+        <label>岗位：<select id="graphJob"></select></label>
+        <button id="btnGraph" class="btn btn-secondary">查询岗位技能</button>
+        <span id="graphSkillInfo" class="graph-info"></span>
+      </div>
+    </section>
+
+    <!-- 历史记录 -->
+    <section class="panel history-panel">
+      <h2>④ 历史记录 <span class="tag">SQLite</span></h2>
+      <div id="historyArea" class="history-area">
+        <div class="empty-tip">暂无历史记录</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    课程设计 · 基于深度学习与知识图谱的智能招聘简历筛选系统 · Flask + TF-IDF/逻辑回归 + networkx + SQLite
+  </footer>
+
+  <script src="/static/js/echarts.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

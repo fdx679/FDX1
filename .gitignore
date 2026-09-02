@@ -24,4 +24,12 @@ Thumbs.db
 *.pth
 *.onnx
 *.bin
+*.pkl
 logs/
+
+# 运行数据库与模型缓存
+app/data.db
+app/models/cache/
+
+# 测试缓存
+.pytest_cache/

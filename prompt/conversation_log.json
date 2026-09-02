@@ -1,7 +1,7 @@
 {
   "project": "基于深度学习与知识图谱的智能招聘简历筛选系统设计与实现",
-  "prompt_trace_version": "v0.1",
-  "description": "课程设计全流程 AI 交流记录（数据准备与预处理阶段）。每个阶段结束时追加更新，上下文压缩前备份。",
+  "prompt_trace_version": "v0.2",
+  "description": "课程设计全流程 AI 交流记录。每个阶段结束时追加更新，上下文压缩前备份。",
   "conversation": [
     {
       "turn_id": 1,
@@ -45,6 +45,44 @@
         "分层划分：按岗位类别8:2划分训练/测试集，避免类别不均衡",
         "技能抽取：基于技能词表规则抽取，生成岗位-技能关系表供知识图谱构建",
         "岗位数据补全：对Indeed缺失的技术类岗位自建补充，保证知识图谱覆盖完整"
+      ]
+    },
+    {
+      "turn_id": 3,
+      "timestamp": "2026-09-02",
+      "stage": "vibe coding 学习与选题提交",
+      "user_message": "控制我的电脑，按课程设计指导书要求完成：(1)vibe coding方法学习（提示词工程/上下文工程/规格驱动开发/AI代码测试与人工审查/调试与人工接管）；(2)git版本控制；(3)选题提交（技术方向映射表/架构草图/数据来源）；(4)数据资源整理；(5)系统开发与集成调试（后端/数据库/前端/算法模块，自动化测试，可现场演示）；(6)成果提交。",
+      "ai_summary": "撰写 docs/vibe_coding_notes.md（提示词工程-拆解/约束/验收、上下文工程-先读再改、规格驱动开发-需求文档→计划→分步实现→验收、AI代码自动化测试与人工审查、调试回滚/缩小改动/最小复现）；撰写 docs/选题提交.md（技术方向映射表6项、系统架构草图、数据来源）；撰写 docs/需求规格说明书.md（功能/数据/非功能需求、接口、验收标准）。",
+      "artifacts": [
+        "docs/vibe_coding_notes.md",
+        "docs/选题提交.md",
+        "docs/需求规格说明书.md"
+      ],
+      "key_decisions": [
+        "技术选型考虑可现场演示：SQLite(替代MySQL)、networkx(替代Neo4j)、TF-IDF+逻辑回归(替代BERT)、静态前端(替代Vue构建)",
+        "规格驱动开发：以需求规格说明书为纲，按里程碑分步实现"
+      ]
+    },
+    {
+      "turn_id": 4,
+      "timestamp": "2026-09-02",
+      "stage": "系统开发与集成调试",
+      "user_message": "运用vibe coding完成后端服务、数据库、前端界面与各算法模块的开发与集成，通过自动化测试，达到可现场演示状态。",
+      "ai_summary": "开发完整系统：app/models/（skill_lexicon技能词表180+、skill_extractor技能抽取、resume_parser简历解析、classifier岗位分类、skill_graph知识图谱、matcher匹配排序）、app/api/（resume/match/graph/system四个蓝图）、app/database.py（SQLite）、app/static/（前端演示页+本地ECharts）、run.py启动入口。安装依赖（flask/sklearn/jieba/networkx等），启动服务验证10个API。编写pytest测试23项并全部通过。集成调试修复3个AI出错问题：(1)sklearn新版移除multi_class参数导致TypeError；(2)姓名正则大小写敏感与匹配过度；(3)匹配区分度不足（软技能虚高），引入硬技能过滤+岗位技能规模惩罚。分类器参数搜索（preprocessing/tune_classifier.py）将准确率从35.5%提升至51.6%。用真实简历验证完整业务闭环。",
+      "artifacts": [
+        "app/ 完整后端与算法模块（Flask+SQLite+networkx+TF-IDF/逻辑回归）",
+        "app/static/ 前端演示页面（HTML/CSS/JS+本地ECharts）",
+        "run.py 启动入口（python run.py → http://127.0.0.1:5000）",
+        "tests/ 23项自动化测试（pytest全通过）",
+        "requirements.txt 依赖清单",
+        "分类器测试集准确率51.6%（25类多分类）",
+        "docs/设计报告.md（含AI使用披露）"
+      ],
+      "key_decisions": [
+        "匹配评分公式：0.45×硬技能覆盖率+0.25×分类置信度+0.15×经验分+0.15×预测命中，输出可解释的命中/缺失技能",
+        "知识图谱用networkx实现岗位→技能有向图，支撑缺失技能推理与图谱可视化",
+        "隐私合规：解析结果邮箱/电话一律掩码，不入库真实个人信息",
+        "数据规模限制下分类准确率约52%，设计报告如实披露并说明生产可替换BERT"
       ]
     }
   ]
