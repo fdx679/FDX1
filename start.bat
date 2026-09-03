@@ -21,10 +21,23 @@ if errorlevel 1 (
     pip install -r requirements.txt
 )
 
-rem 第3步：启动服务并打开浏览器
+rem 第3步：后台启动服务（最小化窗口，不阻塞本脚本）
 echo 正在启动服务，请稍候...
-echo 看到 Running on http://127.0.0.1:5000 即启动完成
-start "" "http://127.0.0.1:5000"
+start "ResumeService" /min cmd /c "python run.py"
+
+rem 第4步：等待服务就绪（最多约30秒），就绪后自动打开网页
+set /a tries=0
+:wait
 timeout /t 2 >nul
-python run.py
+netstat -ano | findstr "127.0.0.1:5000" | findstr "LISTENING" >nul 2>&1
+if not errorlevel 1 goto up
+set /a tries+=1
+if %tries% lss 15 goto wait
+echo [错误] 服务启动超时，请检查上方窗口的输出信息
 pause
+exit /b
+
+:up
+echo 服务已就绪，正在打开网页...
+start "" "http://127.0.0.1:5000"
+exit /b
