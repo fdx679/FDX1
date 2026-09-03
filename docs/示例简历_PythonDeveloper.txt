@@ -1,0 +1,37 @@
+ALEX CHEN
+Email: alex.chen@example.com | Phone: +86 138 0000 1234 | Location: Shanghai, China
+LinkedIn: linkedin.com/in/alexchen | GitHub: github.com/alexchen
+
+PROFESSIONAL SUMMARY
+Python developer with 5 years of experience in designing, developing and maintaining web applications and backend services with Python. Skilled in Flask, Django and REST API development, with hands-on experience in MySQL and Redis, containerization with Docker, orchestration with Kubernetes, version control with Git and automated testing with pytest. A quick learner with strong problem solving and communication skills.
+
+TECHNICAL SKILLS
+- Programming Languages: Python, SQL, Bash
+- Web Frameworks: Flask, Django, REST API
+- Databases: MySQL, Redis
+- DevOps: Docker, Kubernetes, Linux, Git
+- Testing: pytest, unittest
+- Data Handling: pandas, NumPy
+
+EDUCATION
+Bachelor of Engineering in Computer Science
+Shanghai University, 2016 - 2020
+
+WORK EXPERIENCE
+Python Developer | TechData Solutions, Shanghai
+2020 - Present
+- Developed and maintained REST APIs with Flask and Django using Python, serving over 500k daily requests
+- Designed SQL schemas in MySQL and caching strategies with Redis
+- Containerized Python backend services with Docker and deployed to Kubernetes clusters
+- Wrote pytest test suites achieving 92% code coverage
+- Used Git for version control and code reviews in a team
+
+PROJECTS
+Resume Screening Web Platform
+- Built a resume screening web application with Python, Flask and SQLite, featuring REST APIs, a web dashboard and automated tests
+
+E-Commerce Backend System
+- Implemented product and order backend services with Django, REST API and MySQL
+
+CERTIFICATIONS
+- Python Programming Certificate
