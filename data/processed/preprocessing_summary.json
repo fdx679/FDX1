@@ -1,0 +1,61 @@
+{
+  "source": "scripts/generate_raw_data.py 生成的模拟数据",
+  "quality_features": {
+    "rows": 200,
+    "features": [
+      "speed_rpm",
+      "feed_rate",
+      "depth_of_cut",
+      "coolant_temp",
+      "spindle_load",
+      "material_removal_rate"
+    ],
+    "scaler_stats": {
+      "speed_rpm": {
+        "mean": 1591.4255,
+        "std": 380.9508
+      },
+      "feed_rate": {
+        "mean": 0.28,
+        "std": 0.1021
+      },
+      "depth_of_cut": {
+        "mean": 2.0099,
+        "std": 0.9146
+      },
+      "coolant_temp": {
+        "mean": 37.6095,
+        "std": 8.8774
+      },
+      "spindle_load": {
+        "mean": 65.7445,
+        "std": 18.2009
+      },
+      "material_removal_rate": {
+        "mean": 0.5466,
+        "std": 0.3082
+      }
+    }
+  },
+  "equipment_health": {
+    "equipment_count": 6,
+    "window_size": 10,
+    "features": [
+      "vib_mean",
+      "vib_std",
+      "vib_max",
+      "temp_mean",
+      "temp_std",
+      "curr_mean"
+    ]
+  },
+  "steps": [
+    "缺失值中位数填充",
+    "尺寸误差异常值截断",
+    "派生特征 material_removal_rate",
+    "材料 one-hot 编码",
+    "数值特征 z-score 标准化",
+    "传感器时序滑动窗口统计特征",
+    "基于阈值的健康分与预警等级"
+  ]
+}

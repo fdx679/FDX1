@@ -1,0 +1,37 @@
+{
+  "stage": "第二阶段：数据准备与预处理",
+  "recorded_at": "2026-09-14",
+  "model": "豆包大模型（Doubao）",
+  "harness": "豆包办公模式 / app_builder",
+  "exchanges": [
+    {
+      "turn": 1,
+      "role": "user",
+      "content": "数据来源：准备课程设计所需数据。小数据提交到 /data；公开数据集给有效链接并在 /data 写说明、在 readme.md 说明；自建大数据要在 huggingface/modelscope 开源；私有敏感数据不建议用。"
+    },
+    {
+      "turn": 2,
+      "role": "user",
+      "content": "数据预处理：完成原始数据预处理程序，/data 下更新预处理后数据（或索引），readme.md 同步更新。"
+    },
+    {
+      "turn": 3,
+      "role": "user",
+      "content": "AI 工具提示词追溯：创建 prompt 目录，将与 AI 交流记录（json）添加进去，之后每个阶段同步更新，注意在上下文压缩前及时备份。继续使用第一阶段相同仓库，不新建仓库；本阶段以 git 记录时间为准。"
+    },
+    {
+      "turn": 4,
+      "role": "assistant",
+      "actions": [
+        "通过 GitHub API 定位第一阶段仓库 fdx679/FDX1（描述：课程设计），git clone 到本地",
+        "验证 NASA C-MAPSS 公开数据集链接（ti.arc.nasa.gov 返回 200，确认有效）",
+        "编写 scripts/generate_raw_data.py 生成模拟工艺质检数据(200条)与设备传感器时序数据(6台×120cycle)",
+        "编写 scripts/preprocess.py 完成缺失值填充、异常值截断、派生特征、one-hot、标准化、滑动窗口特征、健康分计算",
+        "运行脚本生成 data/raw 与 data/processed 下的数据文件",
+        "编写 data/DATASETS.md 说明自建数据与公开数据集来源",
+        "编写 prompt/stage2_data_prep.json 追溯记录"
+      ]
+    }
+  ],
+  "notes": "本文件为本阶段 AI 交流记录快照，后续阶段将继续新增对应 json 文件。"
+}
