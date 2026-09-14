@@ -32,7 +32,9 @@ FDX1/
 │   ├── generate_raw_data.py # 原始模拟数据生成脚本
 │   └── preprocess.py         # 数据预处理程序
 └── prompt/                  # AI 工具交流记录追溯（json）
-    └── stage2_data_prep.json
+    ├── stage2_data_prep.json
+    ├── stage3_dev.json
+    └── stage4_design_doc.json
 ```
 
 ## 数据来源
@@ -91,3 +93,13 @@ python scripts/preprocess.py
 
 - Python 3.x
 - pandas, numpy
+
+## 交付物清单
+
+| 要求 | 文件 |
+|---|---|
+| ① 代码仓库（git 历史、脚本、README） | 本仓库（含完整 commit 历史）、scripts/、README.md |
+| ② 需求规格说明书 | 需求规格说明书.md |
+| ③ 设计报告 | 设计说明书.md、方案设计.md |
+| ④ 3 分钟演示视频 | demo-video/demo-3min.mp4 |
+| ⑤ 过程档案（prompt 日志、打卡） | prompt/、过程档案.md |
