@@ -37,7 +37,9 @@ FDX1/
 │       └── preprocessing_summary.json    # 预处理步骤与参数摘要
 ├── scripts/
 │   ├── generate_raw_data.py # 原始模拟数据生成脚本
-│   └── preprocess.py         # 数据预处理程序
+│   └── preprocess.py        # 数据预处理程序
+├── demo-video/
+│   └── demo-walkthrough.mp4 # 系统演示视频（压缩版，约7MB）
 └── prompt/                  # AI 工具交流记录追溯（json）
     ├── stage2_data_prep.json
     ├── stage3_dev.json
@@ -108,5 +110,5 @@ python scripts/preprocess.py
 | ① 代码仓库（git 历史、脚本、README） | 本仓库（含完整 commit 历史）、scripts/、README.md |
 | ② 需求规格说明书 | 需求规格说明书.md |
 | ③ 设计报告 | 设计说明书.md、方案设计.md |
-| ④ 3 分钟演示视频 | 已存放于飞书云空间（不入库） |
+| ④ 演示视频 | demo-video/demo-walkthrough.mp4 |
 | ⑤ 过程档案（prompt 日志、打卡） | prompt/、过程档案.md |
