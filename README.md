@@ -2,6 +2,8 @@
 
 > 《制造智能技术》课程设计 · B/S 架构智能应用 Demo
 
+**🔗 在线演示地址**：https://4m1unu47gazt4.aiforce.cloud/app/app_17e2z4nr24n （浏览器直接打开即可使用）
+
 ## 在线访问
 
 - **B/S 全栈应用在线地址**：https://4m1unu47gazt4.aiforce.cloud/app/app_17e2z4nr24n
