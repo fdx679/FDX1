@@ -108,5 +108,5 @@ python scripts/preprocess.py
 | ① 代码仓库（git 历史、脚本、README） | 本仓库（含完整 commit 历史）、scripts/、README.md |
 | ② 需求规格说明书 | 需求规格说明书.md |
 | ③ 设计报告 | 设计说明书.md、方案设计.md |
-| ④ 3 分钟演示视频 | demo-video/demo-3min.mp4 |
+| ④ 3 分钟演示视频 | 已存放于飞书云空间（不入库） |
 | ⑤ 过程档案（prompt 日志、打卡） | prompt/、过程档案.md |
