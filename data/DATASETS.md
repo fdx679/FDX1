@@ -31,8 +31,8 @@
 
 - **数据集说明**：NASA 预测数据中心（PCoE）发布，记录多台涡扇发动机在 21 个传感器通道下从全新状态到失效的时序退化数据，并提供剩余使用寿命（RUL）标签，是国际上预测性维护领域最经典的公开基准数据集。
 - **官方来源链接（已验证可访问）**：
-  - NASA PCoE 预测数据仓库：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
-  - NASA Open Data 镜像：<https://data.nasa.gov/dataset/C-MAPSS-Turbofan-Engine-Degradation-Simulatio/>
+  - NASA PCoE 预测数据仓库（官方）：<https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/>
+  - Kaggle 公开镜像（已验证可访问）：<https://www.kaggle.com/datasets/behrad3d/nasa-cmaps>
 - **本项目使用方式**：借鉴其"多维传感器时序 → 剩余寿命/健康退化"的建模思路，迁移到制造车间设备（振动 RMS、温度、电流）场景；本地 `raw/sensor_timeseries_raw.csv` 即按该退化范式模拟生成。
 
 > 本项目未将该公开数据集原始文件（约数 MB）克隆进仓库，仅引用链接；如后端算法需要，可按上述链接下载 `train_FD001.txt` 等文件放入本目录。
